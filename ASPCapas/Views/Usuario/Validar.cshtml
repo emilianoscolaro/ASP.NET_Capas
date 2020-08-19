@@ -1,0 +1,63 @@
+﻿@model Dominio.Core.Entities.Usuario
+@{
+    ViewBag.Title = "Validar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div align="center">
+    <br />
+    <h2>LOGIN</h2>
+</div>
+
+@using (Html.BeginForm())
+{
+<table>
+    <tr>
+        <td>@Html.DisplayNameFor(model =>model.Usuario_u)</td>
+        <td>@Html.TextBox("usr")
+            @Html.ValidationMessageFor(m=>m.Usuario_u)
+        </td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(model=>model.Clave_u)</td>
+        <td>@Html.TextBox("pass")@Html.ValidationMessageFor(m=>m.Clave_u)</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><input type="submit" value="Enviar" onclick="Validar()" /></td>
+    </tr>
+</table>
+}
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript">
+        function Validar()
+        {
+            var usuario = $("#usr").val();
+            var pasword = $("#pass").val();
+
+            if (usuario == '')
+            {
+                alert('Indique Usuario');
+                $("#usr").focus();
+                return false;
+            }
+            if (pasword == '')
+            {
+                alert('No ha ingresado ninguna contrasela');
+                $("#pass").focus();
+                return false;
+            }
+            return true;
+
+        }
+
+    </script>
+
+
+    }
+
+
+

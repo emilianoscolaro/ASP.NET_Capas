@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Dominio.Core.Entities.Curso>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<table>
+    <tr>
+        <td>Hola @Request.Cookies["NombreUsuario"]</td>
+        <td>@Html.ActionLink("Cerrar secion", "CerrarCesion")</td>
+    </tr>
+</table>
+
+
+
+<h2>Lista de cursos</h2>
+
+
+<p>
+    @Html.ActionLink("Nuevo curso", "CrearCurso")
+</p>
+
+<table>
+    <tr>
+        <th>@Html.DisplayNameFor(model=>model.Id_cur)</th>
+        <th>@Html.DisplayNameFor(model => model.Nombre_c)</th>
+        <th>@Html.DisplayNameFor(model => model.Correro_c)</th>
+        <th>@Html.DisplayNameFor(model => model.Credito_c)</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelitem=>item.Id_cur)</td>
+            <td>@Html.DisplayFor(modelitem => item.Nombre_c)</td>
+            <td>@Html.DisplayFor(modelitem => item.Correro_c)</td>
+            <td>@Html.DisplayFor(modelitem => item.Credito_c)</td>
+        
+        </tr>
+
+
+
+    }
+
+
+
+</table>
+
